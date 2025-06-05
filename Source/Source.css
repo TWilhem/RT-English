@@ -1,0 +1,45 @@
+.Contenu {
+    display: flex;
+    flex-direction: column;
+    margin-left: 40px;
+    margin-right: 40px;
+
+    align-items: center;
+    text-align: center;
+
+    background-color: rgb(55, 53, 52);
+    color: #fff;
+}
+
+.Contenu p, .Contenu strong {
+    width: 70%;
+    font-size: 1.2rem; 
+    margin: 10px auto;
+    text-align: center;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.video-item {
+    width: 100%;
+    max-width: 640px;
+}
+
+@media (min-width: 1024px) {
+    .video-container {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .video-item {
+        width: 50%;
+        max-width: none;
+        box-sizing: border-box;
+        padding: 0 10px;
+    }
+}

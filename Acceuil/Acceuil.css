@@ -1,0 +1,71 @@
+.bubble-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-left: 40px;
+    margin-right: 10px;
+}
+
+.bubble {
+    background-size: cover;
+    background-position: center;
+    color: white;
+    height: 200px;
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    align-items: flex-end;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: transform 0.3s ease;
+}
+
+.bubble:hover {
+    transform: scale(1.02);
+}
+
+
+
+.imgBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../image/ImgAcceuil.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.logoAcceuil {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(255, 255, 255);
+    font-size: 4em;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 5px black;
+    z-index: 1;
+}
+
+@media (max-width: 1024px) {
+    .bubble-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .logoAcceuil {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 425px) {
+    .logoAcceuil {
+        font-size: 2em;
+    }
+}

@@ -1,0 +1,125 @@
+label {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+/* Icône droite (Font Awesome) */
+.right-icon i {
+    display: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.left-icon {
+    background-color: rgb(133, 132, 132);
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Logo IMG à gauche */
+.left-icon img {
+    width: auto;
+    height: 30px;
+    display: block;
+}
+
+.Menu {
+    display: flex;
+    gap: 20px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+body {
+    margin: 0;
+    padding-top: 60px;
+}
+
+@media (max-width: 1024px) {
+    .Menu {
+        display: none;
+    }
+
+    .right-icon i {
+        display: inline;
+    }
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -150px;
+    width: 100px;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 75px 60px 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+.sidebar.active {
+    left: 0;
+}
+
+.Menu a,
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    cursor: pointer;
+}
+
+.sidebar a {
+    margin-top: 20px;
+}
+
+.sidebar p {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    display: block;
+    margin-top: 40px;
+}
+
+.Menu a i,
+.sidebar a i {
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    display: inline;
+}
+
+.rightbar {
+    position: fixed;
+    top: 0;
+    right: -150px;
+    width: 100px;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 60px 75px 60px 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.3s ease;
+    z-index: 999;
+}

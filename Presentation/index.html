@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre</title>
+    <link rel="stylesheet" href="../style.css" type="text/css">
+    <link rel="stylesheet" href="./Presentation.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="../script.js" defer></script>
+    <script src="./Presentation.js" defer></script>
+</head>
+<body>
+    <label for="">
+        <div class="left-icon">
+            <img src="../th-removebg-preview.png" alt="">
+        </div>
+        <div class="right-icon">
+            <i class="fa-solid fa-bars"></i>
+            <div class="Menu">
+                <a href="../Acceuil/index.html">Home</a>
+                <a href="../Presentation/">Presentation</a>
+                <a href="../Source/">External Source</a>
+                <a href="../Util/">Event</a>
+            </div>
+        </div>
+    </label>
+    <div class="sidebar" id="sidebar">
+        <div>
+            <p><strong>Bienvenue</strong></p>
+            <br>
+            <a href="../Acceuil/index.html">Home</a>
+            <a href="../Presentation/">Presentation</a>
+            <a href="../Source/">External Source</a>
+            <a href="../Util/">Event</a>
+        </div>
+    </div>
+
+    <div class="rightbar" id="rightbar"></div>
+
+    <div class="Contenu">
+        <div class="zone Impaire">
+            <div class="rectangle-noir">
+                <Strong>Location</Strong> <br>
+                Networks and Telecommunications, also known as R&T, is a program offered in more than twenty institutions, each providing specific academic tracks.<br>
+                This presentation focuses on the R&T program at the IUT of Béziers, including its specializations, job opportunities, and career prospects.
+            </div>
+            <div class="Media"><div id="map"></div></div>
+        </div>
+        <div class="zone Paire">
+            <div class="rectangle-noir">
+                <Strong>Subject</Strong> <br>
+                In R&T, you will learn a lot of things <br>
+                such as mathematics, how to connect to machines, how information is transmitted via fiber optics or electricity, how to deploy applications, how to build and optimize networks, and how to automate tasks using programming languages like Python, JavaScript, Bash, Arduino, <br>
+                and a lot more.
+            </div>
+            <div class="Media"><img src="../image/Entree.jpg" alt="Image"></div>
+        </div>
+        <div class="zone Impaire">
+            <div class="rectangle-noir">
+                <Strong>Field of study</Strong> <br>
+                In your second year, you will have to choose a specialization. At IUT Béziers, there are two options: <br>
+                <br>
+                - The first is "Cybersecurity," where you will learn <br>
+                how to attack, monitor, analyze, and protect infrastructure. <br>
+                <br>
+                - The second is "Cloud," where you will learn <br> 
+                how to deploy, use, share, manage, and secure infrastructure. <br>
+            </div>
+            <div class="Media">
+                <img src="../image/cyber.jpg" alt="Image Cyber">
+                <img src="../image/cloud.jpg" alt="Image Cloud">
+            </div>
+        </div>
+        <div class="zone Paire">
+            <div class="rectangle-noir">
+                <Strong>Environment </Strong> <br> 
+                IUT Béziers is not limited to the classroom. <br> 
+                You have access to a wide range of <br> 
+                activities, equipment, and knowledge at your disposal at any time.
+            </div>
+            <div class="Media">
+                <img src="../image/baby.jpg" alt="Image">
+                <img src="../image/BU.jpg" alt="Image">
+                <img src="../image/dehors.jpg" alt="Image">
+                <img src="../image/musique2.jpg" alt="Image">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Initialiser la carte centrée
+            var map = L.map('map').setView([46.603354, 1.888334], 5); // Centré sur Paris
+
+            // Ajouter la couche OpenStreetMap
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+
+            
+
+            // Ajouter les marqueurs
+            etablissements.forEach(etab => {
+                var icon = etab.name.includes("Béziers") ? blueIcon : redIcon;
+
+                var filiereList = etab.filieres.map(id => `<li>${FILIERE_LABELS[id]}</li>`).join('');
+                var popupContent = `<strong>${etab.name}</strong><br><br><u>specializations :</u><ul>${filiereList}</ul>`;
+
+                L.marker(etab.coords, { icon: icon }).addTo(map)
+                    .bindPopup(popupContent);
+            });
+
+        });
+    </script>
+
+</body>
+</html>
